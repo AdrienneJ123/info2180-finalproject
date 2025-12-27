@@ -34,28 +34,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dolphin CRM - Login</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
+
 <body class="login-page">
-    <div class="login-container">
-        <div class="login-header">
+
+    <nav class="top-nav">
+        <div class="nav-container">
             <h1>🐬 Dolphin CRM</h1>
         </div>
+    </nav>
+
+    <div class="login-container">
         <div class="login-box">
-            <h2>Sign In</h2>
+            <h2> Login</h2>
+
             <?php if (isset($error)): ?>
                 <div class="error"><?php echo $error; ?></div>
             <?php endif; ?>
+
             <form method="POST" action="login.php">
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <input type="email" name="email" placeholder="Email address" required>
+                <input type="password" name="password" placeholder="Password" required>
+
+                <button type="submit" class="login-btn"><i class="bi bi-lock-fill"></i>Login</button>
             </form>
+                     <p class="footer">Copyright © 2022 Dolphin CRM</p>
+
         </div>
     </div>
 </body>

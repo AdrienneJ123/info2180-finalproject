@@ -51,64 +51,64 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New User - Dolphin CRM</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body>
-    <?php include '../includes/aside.php'; ?>
-    
-    <div class="container">
-        <div class="form-header">
-            <h1>Add New User</h1>
-            <a href="list.php" class="btn btn-secondary">Back to Users</a>
-        </div>
-        
-        <?php if (!empty($errors)): ?>
-            <div class="error">
-                <?php foreach ($errors as $error): ?>
-                    <p><?php echo $error; ?></p>
-                <?php endforeach; ?>
+<?php include '../includes/aside.php'; ?>
+    <div class="main-content">
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h1><b> New User</b> </h1>
             </div>
-        <?php endif; ?>
-        
-        <form method="POST" action="new.php" class="user-form">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="firstname">First Name *</label>
-                    <input type="text" id="firstname" name="firstname" required>
+            <!-- Errors -->
+            <?php if (!empty($errors)): ?>
+                <div class="error">
+                    <?php foreach ($errors as $error): ?>
+                        <p><?php echo htmlspecialchars($error); ?></p>
+                    <?php endforeach; ?>
                 </div>
+            <?php endif; ?>
+            <div class="contacts-table-container">
                 
-                <div class="form-group">
-                    <label for="lastname">Last Name *</label>
-                    <input type="text" id="lastname" name="lastname" required>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Email *</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="password">Password *</label>
-                <input type="password" id="password" name="password" required>
-                <small>Must be at least 8 characters with one number, one letter, and one capital letter</small>
-            </div>
-            
-            <div class="form-group">
-                <label for="role">Role *</label>
-                <select id="role" name="role" required>
-                    <option value="">Select Role</option>
-                    <option value="Admin">Admin</option>
-                    <option value="Member">Member</option>
-                </select>
-            </div>
-            
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary">Save User</button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
-            </div>
-        </form>
-    </div>
-    
-    <?php include '../includes/footer.php'; ?>
+                <form method="POST" action="new.php" class="user-form" style="padding: 24px;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstname">First Name </label>
+                            <input type="text" id="firstname" name="firstname" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastname">Last Name </label>
+                            <input type="text" id="lastname" name="lastname" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email </label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password </label>
+                        <input type="password" id="password" name="password" required>
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">Role </label>
+                        <select id="role" name="role" required>
+                              <option value="Member">Member</option>
+                            <option value="Admin">Admin</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions" style="margin-top: 20px;">
+                        <button type="submit" class="new-contact-btn">Save User</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+
+                </form>
+        </div>
+</div>
 </body>
 </html>
